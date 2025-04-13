@@ -1,21 +1,18 @@
 package baseclass;
 
 public class FraudDetector {
-    boolean isFraud(Transaction transaction) {
-        Trader trader = transaction.getTrader();
-        if (trader.getFullName().equals("Pokemon")) {
-            return true;
-        }
 
-        if (transaction.getAmount() > 1000000) {
-            return true;
+        private FraudRule rule1 = new FraudRule1();
+        private FraudRule rule2 = new FraudRule2();
+        private FraudRule rule3 = new FraudRule3();
+        private FraudRule rule4 = new FraudRule4();
+        private FraudRule rule5 = new FraudRule5();
+
+        boolean isFraud (Transaction transaction){
+            return rule1.isFraud(transaction)
+                    || rule2.isFraud(transaction)
+                    || rule3.isFraud(transaction)
+                    || rule4.isFraud(transaction)
+                    || rule5.isFraud(transaction);
         }
-        if (transaction.getTrader().getCity().equals("Sydney")) {
-            return true;
-        }
-        if (transaction.getTrader().getCountry().equals("Jamaica")) {
-            return true;
-        }
-        return false;
     }
-}
