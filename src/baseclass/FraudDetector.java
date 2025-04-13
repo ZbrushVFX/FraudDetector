@@ -13,6 +13,9 @@ public class FraudDetector {
         if (transaction.getTrader().getCity().equals("Sydney")) {
             return true;
         }
+        if (transaction.getTrader().getCountry().equals("Jamaica")) {
+            return true;
+        }
         return false;
     }
 }
